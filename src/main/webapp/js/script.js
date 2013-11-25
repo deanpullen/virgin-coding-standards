@@ -87,7 +87,7 @@ var isobar = {
 					anchor = '_' + the_text.replace(/\s+|\-/g, '_').replace(/[^A-Z0-9_]/gi, '').replace(/_+/g, '_').toLowerCase();
 
 					hx[i].id = anchor;
-					$(hx[i]).before('<a href="#'+ anchor +'" class="anchor_link" title="Permalink">◊</a>');
+					$(hx[i]).before('<a href="#'+ anchor +'" class="anchor_link" title="Permalink">link</a>');
 					toc.innerHTML += '<li class="'+ tag +'"><a href="#'+ anchor +'">'+ the_text +'</a></li>';
 				}
 				

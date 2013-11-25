@@ -1,89 +1,57 @@
 <!-- #### CLASSES SECTION #### -->
-
 <section id="classes">
-
-	<div class="intro has-icon">
-		<h1>Classes</h1>
-		
-		<p>The root of Java development comes from class source files, and several things should be adhered to when
+    <div class="intro has-icon">
+        <h1>Classes</h1>
+        <p>The root of Java development comes from class source files, and several things should be adhered to when
             creating or editing a .java file.</p>
-	</div>
-	
-	<h3 id="beginningComments">Beginning Comments</h3>
-	
-	<p>All classes comment that lists the class name and description, author, version information,
-        date, and copyright notice:</p>
+    </div>
+    <h2 id="beginningComments">Beginning Comments</h2>
+    <p>All classes should contain an explanation of the purpose of the class. 
+    They should <strong>not</strong> contain author, version or date information. This is the job of a version control system.</p>
     <p>This comes under the package name and import statements and just above the class declaration.</p>
+    <figure class="pre-code">Class start</figure>
+    <pre><code class="java">
+package com.virginholidays.example;
+import java.util.*;
+/*
+* Classname and description
+*/
+public class ClassNameHere {
+   ...
+}
+    </code></pre>
+    <h2 id="packageAndImportStatements">Package and Import Statements</h2>
+    <p>The first non-comment line of most Java source files is a package statement. After that, import statements can follow.</p>
+    <p>Imports should be sorted alphabetically and not grouped. Static imports should appear after a newline below the non-static imports.</p>
+    <p>Static imports should be avoided wherever possible as they can be confused with calls to instance methods. Unit tests &amp; mocks are the exception to this however
+    as most of the assertions are static methods. Assertion methods <strong>should</strong> be imported statically to make your tests more readable. e.g:</p>
+    <figure class="pre-code">Package and Import Statements</figure>
+    <pre><code class="java">
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-    <figure class="preCode">Class start</figure>
-    <textarea class="brush:html">
-       package com.virginholidays.example;
-
-       import java.util.*;
-
-       /*
-        * Classname and description
-        *
-        * Version information
-        *
-        * Copyright notice
-        *
-        * @author Dean Pullen
-        * @since 20-Nov-2013
-        */
-       public class ClassNameHere {
-           ...
-       }
-    </textarea>
-
-	<h3 id="packageAndImportStatements">Package and Import Statements</h3>
-
-	<p>The first non-comment line of most Java source files is a package statement. After that, import statements can follow. For example:</p>
-
-	<figure class="preCode">Package and Import Statements</figure>
-	<textarea class="brush:html">
-        package java.awt;
-
-        import java.awt.peer.CanvasPeer;
-    </textarea>
-
-    <h3 id="classAndInterfaceDeclarations">Class and Interface Declarations</h3>
-
+import static org.testng.Assert.*;
+    </code></pre>
+    <h2 id="classAndInterfaceDeclarations">Class and Interface Declarations</h2>
     <p>The following describes the parts of a class or interface declaration, in the order that they should appear.</p>
-
-
     <p><b>1.</b> Class/interface documentation comment (/**...*/)<p></p>
-
-
     <p><b>2.</b> Class or interface statement</p>
-
-
     <p><b>3.</b> Class/interface implementation comment (/*...*/), if necessary</p>
-
-
     <p>[This comment should contain any class-wide or interface-wide information that wasn't appropriate for the class/interface documentation comment]</p>
-
-
     <p><b>4.</b> Class (static) variables</p>
-
-
     <p>[First the public class variables, then the protected, then package level (no access modifier), and then the private]</p>
-
-
     <p><b>5.</b> Instance variables</p>
-
-
     <p>[First public, then protected, then package level (no access modifier), and then private]</p>
-
-
     <p><b>6.</b> Constructors</p>
-
     <p><b>7.</b> Methods</p>
-
     <p>[These methods should be grouped by functionality rather than by scope or accessibility. For example,
     private class method can be in between two public instance methods. The goal is to make reading and understanding the code easier]
     </p>
-
-
-
 </section>

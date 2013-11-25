@@ -12,13 +12,13 @@
 
     <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if necessary -->
     <script src="//code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script>window.jQuery || document.write("<script src='js/libs/jquery-1.7.2.min.js'>\x3C/script>")</script>
+    <script>window.jQuery || document.write("<script src='/js/libs/jquery-1.7.2.min.js'>\x3C/script>")</script>
 
-    <script defer src="js/plugins.js"></script>
-    <script defer src="js/script.js"></script>
+    <script defer src="/js/plugins.js"></script>
+    <script defer src="/js/script.js"></script>
 
     <!--[if lt IE 7 ]>
-    <script src="js/libs/dd_belatedpng.js"></script>
+    <script src="/js/libs/dd_belatedpng.js"></script>
     <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
     <![endif]-->
 
@@ -30,4 +30,7 @@
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
     <![endif]-->
 
+    <!-- Highlighting -->
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </html>

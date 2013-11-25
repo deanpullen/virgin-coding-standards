@@ -20,10 +20,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS: implied media="all" -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-    <script src="js/libs/modernizr-2.0.6.min.js"></script>
+    <script src="/js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
 <body>
@@ -39,7 +39,6 @@
                 </div> <!-- /.bar-item -->
 
                 <nav id="site-navigation" class="nav-right bar-item site-navigation" role="navigation">
-                    <h3 class="toc-title">Links</h3>
                     <ul class="subjects-list clearfix">
                         <li><a class="button-link" href="/index.jsp">Home</a></li>
                         <li><a class="button-link" href="/sections/back-end/index.jsp">Back-end</a></li>

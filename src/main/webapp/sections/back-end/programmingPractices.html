@@ -1,91 +1,56 @@
 <!-- #### PROGRAMMING PRACTICES SECTION #### -->
-
 <section id="programmingPractices">
-
-	<div class="intro has-icon">
-		<h1>Programming Practices</h1>
-		
-		<p>This section contains general good programming practices, that should be employed at Virgin Holidays.</p>
-	</div>
-
-	<h3 id="accessVariables">Providing Access to Instance and Class Variables</h3>
-	
-	<p>Don't make any instance or class variable public without good reason. Often, instance variables don't need to be
+    <div class="intro has-icon">
+        <h1>Programming Practices</h1>
+        <p>This section contains general good programming practices, that should be employed at Virgin Holidays.</p>
+    </div>
+    <h2 id="accessVariables">Providing Access to Instance and Class Variables</h2>
+    <p>Don't make any instance or class variable public without good reason. Often, instance variables don't need to be
         explicitly set or gotten-often that happens as a side effect of method calls.</p>
-
-    <h3 id="classVariablesMethods">Referring to Class Variables and Methods</h3>
-
+    <h2 id="classVariablesMethods">Referring to Class Variables and Methods</h2>
     <p>Avoid using an object to access a class (static) variable or method. Use a class name instead. For example:</p>
-
-    <figure class="preCode">Examples:</figure>
-    <textarea class="brush:html">
-        classMethod();             //OK
-
-        AClass.classMethod();      //OK
-
-        anObject.classMethod();    //AVOID!
-    </textarea>
-
+    <figure class="pre-code">Examples:</figure>
+    <pre><code class="java">
+classMethod();             //OK
+AClass.classMethod();      //OK
+anObject.classMethod();    //AVOID!
+    </code></pre>
+    <h2 id="contants">Constants</h2>
+    <p>As a general rule, literals make code easier to read and follow. Constants should only be used when they make code easier to understand or maintain.</p>
+    <p>Readability can be improved when literal values have meaning other than their literal values. For example a giant regex that parses email addresses may not be immediately obvious.</p>
+    <p>Maintainability can be improved when a literal value which is likely to change is hard coded in multiple places. For example the default number of search-results per page.</p>
     <h3 id="numericalConstants">Numerical Constants</h3>
-
-    <p>Numerical constants (literals) should <b>not</b> be coded directly, except for -1, 0, and 1, which can appear in a for loop as counter values.</p>
-
-    <p>Use a singularly defined <a href="#constants">constant</a>!</p>
-
-    <h3 id="nonNumericalConstants">String Constants</h3>
-
-    <p>String constants (literals) should <b>not</b> be coded directly/hard-coded.</p>
-
-    <p>Use a singularly defined <a href="#constants">constant</a>!</p>
-
-    <h3 id="variableAssignments">Variable Assignments</h3>
-
+    <p>As defined above, when a numeric value is hard-coded in mulitple places, or is a 'magic number' (a number that has some meaning other than it's value) a numeric constant should be defined.</p>
+    <h2 id="variableAssignments">Variable Assignments</h2>
     <p>Avoid using an object to access a class (static) variable or method. Use a class name instead. For example:</p>
-
-    <figure class="preCode">Avoid:</figure>
-    <textarea class="brush:html">
-        fooBar.fChar = barFoo.lchar = 'c'; // AVOID!
-    </textarea>
-
+    <figure class="pre-code">Avoid:</figure>
+    <pre><code class="java">
+fooBar.fChar = barFoo.lchar = 'c'; // AVOID!
+    </code></pre>
     <p>Do not use embedded assignments in an attempt to improve run-time performance. This is the job of the compiler.
         Example:</p>
-
-    <figure class="preCode">Avoid:</figure>
-    <textarea class="brush:html">
-        d = (a = b + c) + r;        // AVOID!
-    </textarea>
-
+    <figure class="pre-code">Avoid:</figure>
+    <pre><code class="java">
+d = (a = b + c) + r;        // AVOID!
+    </code></pre>
     <p>Should actually be written like:</p>
-
-    <figure class="preCode">Actual:</figure>
-    <textarea class="brush:html">
-        a = b + c;
-        d = a + r;
-    </textarea>
-
-
-    <h3 id="parentheses">Parentheses</h3>
-
-    <p>It is generally a good idea to use parentheses liberally in expressions involving mixed operators to avoid operator
-        precedence problems.</p>
-    <p>Even if the operator precedence seems clear to you, it might not be to others-you shouldn't assume that other
-        programmers know precedence as well as you do.</p>
-
-    <figure class="preCode">Examples:</figure>
-    <textarea class="brush:html">
-        if (a == b && c == d)     // AVOID!
-        if ((a == b) && (c == d)) // RIGHT
-    </textarea>
-
-
-    <h3 id="expressionsConditional">Expressions before `?' in the Conditional Operator</h3>
-
+    <figure class="pre-code">Actual:</figure>
+    <pre><code class="java">
+a = b + c;
+d = a + r;
+    </code></pre>
+    <h2 id="parentheses">Parentheses</h2>
+    <p>Alongside using parentheses to control operator presidence, they should also be used to logically group sub-expressions in larger boolean expressions.</p>
+    <figure class="pre-code">Examples:</figure>
+    <pre><code class="java">
+if (a == b &amp;&amp; c == d)     // AVOID!
+if ((a == b) &amp;&amp; (c == d)) // RIGHT
+    </code></pre>
+    <h2 id="expressionsConditional">Expressions before `?' in the Conditional Operator</h2>
     <p>If an expression containing a binary operator appears before the ? in the ternary ?: operator, it should be
         parenthesized.</p>
-
-    <figure class="preCode">Example:</figure>
-    <textarea class="brush:html">
-        (x >= 0) ? x : -x;
-    </textarea>
-
+    <figure class="pre-code">Example:</figure>
+    <pre><code class="java">
+(x &lt;= 0) ? x : -x;
+    </code></pre>
 </section>
